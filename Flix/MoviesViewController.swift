@@ -11,7 +11,6 @@ import AlamofireImage
 class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var movies:[[String: Any]] = []
-    var initializing = true
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     var refreshControl: UIRefreshControl!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -48,6 +47,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         fetchNowPlaying()
     }
     func fetchNowPlaying(){
+        self.activityIndicator.startAnimating()
         let url = URL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=31b40f23458923f6846a18b020df4956")
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -63,10 +63,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 self.moviesTable.reloadData()
                 self.refreshControl.endRefreshing()
             }
-            if(self.initializing){
-                self.activityIndicator.stopAnimating()
-                self.initializing = false
-            }
+            self.activityIndicator.stopAnimating()
         }
         task.resume();
     }
