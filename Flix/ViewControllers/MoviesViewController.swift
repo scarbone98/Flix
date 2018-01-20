@@ -23,7 +23,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieEntryCell", for: indexPath) as! MovieEntryCell
         let movie = movies[indexPath.row]
         let moviePicture = movie["poster_path"] as? String
-        let pictureURL = URL(string: "https://image.tmdb.org/t/p/w150/" + moviePicture!)
+        let pictureURL = URL(string: "https://image.tmdb.org/t/p/w500/" + moviePicture!)
         cell.movieOverview.text = movie["overview"] as? String
         cell.movieTitle.text = movie["title"] as? String
         cell.movieThumbnail.af_setImage(withURL: pictureURL!)
