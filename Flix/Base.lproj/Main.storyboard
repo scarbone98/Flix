@@ -221,9 +221,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="51b-P9-VEl">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="51b-P9-VEl">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="dxc-Jf-mKh">
                                     <size key="itemSize" width="125" height="213"/>
@@ -254,6 +253,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="51b-P9-VEl" firstAttribute="top" secondItem="whm-VH-iJD" secondAttribute="top" id="Sfv-WQ-sfp"/>
+                            <constraint firstItem="51b-P9-VEl" firstAttribute="leading" secondItem="whm-VH-iJD" secondAttribute="leading" id="UaX-KH-WDR"/>
+                            <constraint firstItem="51b-P9-VEl" firstAttribute="trailing" secondItem="whm-VH-iJD" secondAttribute="trailing" id="uj9-29-aeb"/>
+                            <constraint firstItem="51b-P9-VEl" firstAttribute="bottom" secondItem="whm-VH-iJD" secondAttribute="bottom" id="xf1-bK-Pas"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="whm-VH-iJD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Flix" id="2y3-q7-vde"/>
@@ -290,6 +295,6 @@
         <image name="superhero_tabbar_item" width="21" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6GB-qB-kX3"/>
+        <segue reference="0Ld-l6-Q09"/>
     </inferredMetricsTieBreakers>
 </document>

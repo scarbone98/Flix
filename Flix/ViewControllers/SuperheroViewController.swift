@@ -9,14 +9,14 @@
 import UIKit
 
 class SuperheroViewController: UIViewController,UICollectionViewDataSource {
-    var movies: [[String:Any]] = []
+    var movies: [Movie] = []
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movies.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! MovieCellCollectionViewCell
         let movie = movies[indexPath.item]
-        if let posterPathString = movie["poster_path"] as? String {
+        if let posterPathString = movie.posterUrl {
             let baseURLString = "https://image.tmdb.org/t/p/w500/"
             let posterURL = URL(string: baseURLString + posterPathString)!
             cell.posterImageView.af_setImage(withURL: posterURL)
@@ -47,7 +47,7 @@ class SuperheroViewController: UIViewController,UICollectionViewDataSource {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: [])
                     as! [String: Any]
                 let movies = dataDictionary["results"] as! [[String: Any]]
-                self.movies = movies
+                self.movies = Movie.movies(dictionaries: movies)
                 self.collectionView.reloadData()
             }
         }
